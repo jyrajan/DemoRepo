@@ -1,18 +1,20 @@
-version: 0.2
-
+version: 0.2     
 phases:
-build:
-  commands:
-    - echo Building...
+install:
+    commands:
+      - echo Nothing to install
+  pre_build:
+    commands:
+      - echo pre-build
+  build:
+    commands:
+      - echo Nothing to build
+      - echo Build started on `date`
+  post_build:
+    commands:
+      - echo Build completed on `date`
 artifacts:
   files:
     - '**/*'
-  secondary-artifacts:
-    artifact1:
-      files:
-        - directory/file1
-      name: secondary-artifact-name-1
-    artifact2:
-      files:
-        - directory/file2
-      name: secondary-artifact-name-2
+  base-directory: '/var/www/html'
+  discard-paths: no
