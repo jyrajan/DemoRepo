@@ -1,20 +1,19 @@
-version: 0.2     
+version: 0.2
+
 phases:
-install:
-    commands:
-      - echo Nothing to install
+  install:
+    runtime-versions:
+      java: corretto11
   pre_build:
     commands:
-      - echo pre-build
+      - echo Nothing to do in the pre_build phase...
   build:
     commands:
-      - echo Nothing to build
       - echo Build started on `date`
+      - mvn install
   post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
   files:
-    - '**/*'
-  base-directory: '/var/www/html'
-  discard-paths: no
+    - target/messageUtil-1.0.jar
